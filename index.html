@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIO Tech - Em Desenvolvimento</title>
+    
+    <style>
+        /* Regras de estilo para aplicar o fundo preto e texto branco */
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+            font-size: 1.5rem; /* Fonte maior conforme solicitado */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; /* Centraliza verticalmente na tela */
+            min-height: 100vh; /* Ocupa 100% da altura da janela */
+        }
+
+        /* Estrutura visual para dividir a tela em duas colunas */
+        .container {
+            display: flex;
+            flex-direction: row; /* Coloca os elementos lado a lado */
+            align-items: center;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto; /* Centraliza o bloco na página */
+            padding: 40px;
+            gap: 50px; /* Espaçamento entre o logotipo e o texto */
+        }
+
+        .imagem-coluna, .texto-coluna {
+            flex: 1; /* Divide o espaço igualmente em 50% para cada lado */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* Cantos levemente arredondados para acabamento */
+        }
+
+        /* Ajuste para telas menores (celulares), empilhando os itens para manter o zoom e a leitura acessível */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Marco semântico principal (Landmark Main) -->
+    <main>
+        <div class="container">
+            
+            <!-- Lado Esquerdo: O Logotipo na ordem de leitura -->
+            <div class="imagem-coluna">
+                <img src="logotipoDioTech.jpeg" alt="Logotipo da DIO Tech. A palavra DIO possui a letra I em formato de porta entreaberta irradiando luz, e a letra O contendo a silhueta de um rosto olhando para a porta. Abaixo, o texto Acessibilidade Digital.">
+            </div>
+
+            <!-- Lado Direito: A Mensagem -->
+            <div class="texto-coluna">
+                <!-- Nível de título 1 para abrir a hierarquia da página -->
+<h1>DIO Tech - <span lang="en">The Door is Open</span></h1>                
+<p>Nossa plataforma corporativa está em desenvolvimento.</p>
+                <p>Em breve, a porta estará aberta para novas soluções em Acessibilidade Digital.</p>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>
