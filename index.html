@@ -17,6 +17,10 @@
             display: flex;
             align-items: center; /* Centraliza verticalmente na tela */
             min-height: 100vh; /* Ocupa 100% da altura da janela */
+            
+            /* AJUSTE PARA O VLIBRAS: Cria uma área de segurança para o widget */
+            box-sizing: border-box; 
+            padding-right: 80px; /* Impede que o conteúdo cole na direita, onde fica o botão */
         }
 
         /* Estrutura visual para dividir a tela em duas colunas */
@@ -43,6 +47,11 @@
 
         /* Ajuste para telas menores (celulares), empilhando os itens para manter o zoom e a leitura acessível */
         @media (max-width: 768px) {
+            body {
+                /* No mobile, o botão do VLibras pode atrapalhar embaixo ou na lateral. */
+                padding-right: 0;
+                padding-bottom: 80px; 
+            }
             .container {
                 flex-direction: column;
                 text-align: center;
@@ -52,25 +61,31 @@
 </head>
 <body>
 
-    <!-- Marco semântico principal (Landmark Main) -->
     <main>
         <div class="container">
             
-            <!-- Lado Esquerdo: O Logotipo na ordem de leitura -->
             <div class="imagem-coluna">
-                <img src="logotipoDioTech.jpeg" alt="Logotipo da DIO Tech. A palavra DIO possui a letra I em formato de porta entreaberta irradiando luz, e a letra O contendo a silhueta de um rosto olhando para a porta. Abaixo, o texto Acessibilidade Digital.">
+                <img src="logotipoDioTech.jpeg" alt="Logotipo da DIO Tech: A palavra DIO possui a letra I em formato de uma porta entreaberta irradiando luz para a letra Ó que possui a silhueta de um rosto em seu centro olhando para esta porta. Abaixo, o texto: Acessibilidade Digital.">
             </div>
 
-            <!-- Lado Direito: A Mensagem -->
             <div class="texto-coluna">
-                <!-- Nível de título 1 para abrir a hierarquia da página -->
-<h1>DIO Tech - <span lang="en">The Door is Open</span></h1>                
-<p>Nossa plataforma corporativa está em desenvolvimento.</p>
+                <h1><span lang="en">DIO Tech - The Door is Open</span></h1>                
+                <p>Nossa plataforma corporativa está em desenvolvimento.</p>
                 <p>Em breve, a porta estará aberta para novas soluções em Acessibilidade Digital.</p>
             </div>
 
         </div>
     </main>
 
-</body>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+    </body>
 </html>
