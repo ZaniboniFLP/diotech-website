@@ -3,57 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIO Tech - Em Desenvolvimento</title>
+    <title>DIO Tech | Acessibilidade Digital, Jogos e Eventos</title>
+    <meta name="description" content="Consultoria especializada em Acessibilidade Digital (a11y). Soluções inclusivas para sites, softwares, jogos, eventos corporativos, palestras e treinamentos.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.diotech.com.br/">
+    
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DIO Tech | Acessibilidade Digital, Jogos e Eventos">
+    <meta property="og:description" content="Consultoria especializada em Acessibilidade Digital (a11y). Soluções inclusivas para sites, softwares, jogos, eventos corporativos, palestras e treinamentos.">
+    <meta property="og:url" content="https://www.diotech.com.br/">
+    <meta property="og:site_name" content="DIO Tech">
     
     <style>
-        /* Regras de estilo para aplicar o fundo preto e texto branco */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth; 
+        }
         body {
             background-color: #000000;
             color: #FFFFFF;
-            font-family: Arial, sans-serif;
-            font-size: 1.5rem; /* Fonte maior conforme solicitado */
-            margin: 0;
-            padding: 0;
+            font-family: Arial, Verdana, sans-serif;
+            font-size: 1.25rem; 
+            line-height: 1.6; 
+            letter-spacing: 0.05em; 
+            word-spacing: 0.1em; 
+        }
+        .layout-wrapper {
             display: flex;
-            align-items: center; /* Centraliza verticalmente na tela */
-            min-height: 100vh; /* Ocupa 100% da altura da janela */
-            
-            /* AJUSTE PARA O VLIBRAS: Cria uma área de segurança para o widget */
-            box-sizing: border-box; 
-            padding-right: 80px; /* Impede que o conteúdo cole na direita, onde fica o botão */
+            flex-direction: row;
+            min-height: 100vh;
         }
-
-        /* Estrutura visual para dividir a tela em duas colunas */
-        .container {
+        .barra-lateral {
+            width: 320px;
+            background-color: #080808;
+            border-right: 1px solid #333333;
+            padding: 40px 30px;
             display: flex;
-            flex-direction: row; /* Coloca os elementos lado a lado */
-            align-items: center;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto; /* Centraliza o bloco na página */
-            padding: 40px;
-            gap: 50px; /* Espaçamento entre o logotipo e o texto */
+            flex-direction: column;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto; 
         }
-
-        .imagem-coluna, .texto-coluna {
-            flex: 1; /* Divide o espaço igualmente em 50% para cada lado */
-        }
-
-        img {
+        img.logo {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; /* Cantos levemente arredondados para acabamento */
+            border-radius: 8px;
         }
-
-        /* Ajuste para telas menores (celulares), empilhando os itens para manter o zoom e a leitura acessível */
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        a {
+            color: #ffee00; 
+            text-decoration: none;
+            font-weight: bold; 
+        }
+        a:hover, a:focus {
+            text-decoration: underline; 
+        }
+        .conteudo-principal {
+            flex: 1; 
+            display: flex;
+            flex-direction: column; 
+            padding: 60px 40px;
+            padding-right: 100px; 
+            gap: 60px; 
+        }
+        .secao-hero h1 {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .secao-manifesto, .secao-contato {
+            width: 100%;
+            max-width: 800px; 
+        }
+        .secao-manifesto h2, .secao-contato h2 {
+            color: #ffee00; 
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .secao-manifesto h3 {
+            color: #ffee00;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .secao-manifesto p, .secao-contato p {
+            margin-bottom: 20px; 
+        }
+        .secao-manifesto ul {
+            margin-left: 40px; 
+            margin-bottom: 20px;
+        }
+        .secao-manifesto li {
+            margin-bottom: 15px;
+        }
+        .secao-manifesto strong {
+            color: #80BFFF; 
+        }
+        .secao-contato {
+            background-color: #0b0b0b; 
+            border: 1px solid #333333;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        .formulario-contato {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .grupo-campo {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .grupo-campo label {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .grupo-campo input,
+        .grupo-campo select,
+        .grupo-campo textarea {
+            background-color: #1a1a1a;
+            color: #FFFFFF;
+            border: 2px solid #444444;
+            border-radius: 6px;
+            padding: 12px 15px;
+            font-family: Arial, Verdana, sans-serif;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: border-color 0.2s ease;
+        }
+        .grupo-campo input:focus,
+        .grupo-campo select:focus,
+        .grupo-campo textarea:focus {
+            outline: none;
+            border-color: #ffee00;
+            box-shadow: 0 0 0 3px rgba(77, 166, 255, 0.3);
+        }
+        .botao-enviar {
+            background-color: #ffee00;
+            color: #000000; 
+            border: none;
+            border-radius: 6px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            align-self: flex-start; 
+        }
+        .botao-enviar:hover,
+        .botao-enviar:focus {
+            background-color: #80BFFF;
+            outline: 3px solid #FFFFFF; 
+        }
+        footer {
+            margin-top: auto; 
+            padding-top: 40px;
+            border-top: 1px solid #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1rem;
+        }
+        footer nav ul {
+            flex-direction: row; 
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        .sr-only:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            clip: auto;
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 10px;
+            z-index: 999;
+        }
         @media (max-width: 768px) {
-            body {
-                /* No mobile, o botão do VLibras pode atrapalhar embaixo ou na lateral. */
-                padding-right: 0;
-                padding-bottom: 80px; 
+            .layout-wrapper {
+                flex-direction: column; 
             }
-            .container {
+            .barra-lateral {
+                width: 100%;
+                position: static; 
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #333333;
+                align-items: center;
+                text-align: center;
+                padding-bottom: 30px;
+            }
+            .conteudo-principal {
+                padding: 40px 20px;
+                padding-bottom: 100px; 
+            }
+            .secao-contato {
+                padding: 30px 20px;
+            }
+            .botao-enviar {
+                width: 100%; 
+            }
+            footer {
                 flex-direction: column;
+                gap: 15px;
                 text-align: center;
             }
         }
@@ -61,21 +234,156 @@
 </head>
 <body>
 
-    <main>
-        <div class="container">
+    <a href="#conteudo-principal" class="sr-only">Pular para o conteúdo principal</a>
+
+    <div class="layout-wrapper">
+        
+        <header class="barra-lateral">
+            <div class="logo-container">
+                <img class="logo" src="logoDioTech.jpeg" alt="Logotipo da DIO Tech: em um fundo preto A palavra DIO destaca-se em branco . Possui a letra I em formato de uma porta entreaberta irradiando luz para a letra Ó que possui a silhueta de um rosto em seu centro olhando para esta porta. Abaixo somente da letra ò está a palavra Tech em caixa alta. Abaixo de tudo o texto: Acessibilidade multimodal em amarelo brilhante.">
+            </div>
+            <nav aria-label="Menu principal">
+                <ul>
+                    <li><a href="#quem-somos">Quem Somos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Fale conosco</a></li>
+                    <li><a href="#estatuto" aria-label="Estatuto de Acessibilidade">Estatuto de <span lang="en">a11y</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="conteudo-principal" class="conteudo-principal">
             
-            <div class="imagem-coluna">
-                <img src="logotipoDioTech.jpeg" alt="Logotipo da DIO Tech: A palavra DIO possui a letra I em formato de uma porta entreaberta irradiando luz para a letra Ó que possui a silhueta de um rosto em seu centro olhando para esta porta. Abaixo, o texto: Acessibilidade Digital.">
-            </div>
+            <section class="secao-hero">
+                <h1><span lang="en">DIO Tech - The door is open!</span></h1>                
+                <p>Este é um novo serviço.</p>
+                <p>Nossa porta está aberta àqueles que buscam soluções efetivas em <strong>Acessibilidade Digital</strong>.</p>
+            </section>
 
-            <div class="texto-coluna">
-                <h1><span lang="en">DIO Tech - The Door is Open</span></h1>                
-                <p>Nossa plataforma corporativa está em desenvolvimento.</p>
-                <p>Em breve, a porta estará aberta para novas soluções em Acessibilidade Digital.</p>
-            </div>
+            <section id="quem-somos" class="secao-manifesto" aria-labelledby="titulo-manifesto">
+               <h2 id="titulo-manifesto" style="color: #ffee00;">O que a porta representa</h2>                
+                <p>No centro da nossa logomarca, há uma porta se abrindo. Dela emanam raios de luz.</p>
+                
+                <p>É a luz do conhecimento pelo acesso à informação. Esta é a verdadeira iluminação que só a Comunicação promove. No nosso desenho, essa luz ultrapassa fronteiras e banha todo o humano à nossa porta (sempre aberta).</p>
+                
+                <p>Como funciona: "<span lang="en">a11y</span>" é a abreviação técnica para a palavra em inglês "<span lang="en">accessibility</span>" (acessibilidade). O número 11 representa a quantidade exata de letras entre a primeira letra "A" e a última letra "Y". Na prática e no desenvolvimento de <span lang="en">software</span>, "<span lang="en">a11y</span>" refere-se às práticas de <span lang="en">design</span> e programação que garantem que <span lang="en">sites</span>, aplicativos e tecnologias sejam utilizáveis por todas as pessoas, incluindo aquelas com deficiências visuais, auditivas, motoras ou cognitivas.</p>
+                
+                <p>E o pleno acesso à informação é um direito facilitado pela <span lang="en">DIO Tech</span>.</p>
 
-        </div>
-    </main>
+                <h3 style="color: #ffee00;">"<span lang="en">DOOR IS OPEN</span>", significa: "A porta está aberta"</h3>
+
+                <p>Isso é a <strong>Acessibilidade Multimodal</strong>: múltiplas formas de interação e percepção para que qualquer pessoa, com ou sem deficiência, consiga usar uma plataforma.</p>
+                
+                <p>Venha! Experiencie! Ilumine!</p>
+            </section>
+
+            <section id="servicos" class="secao-manifesto" aria-labelledby="titulo-servicos">
+                <h2 id="titulo-servicos" style="color: #ffee00;">Serviços</h2>
+                <p>Na <span lang="en">DIO Tech</span>, transformamos ambientes digitais e presenciais em espaços verdadeiramente inclusivos. Combinamos conhecimento técnico, sensibilidade social e conformidade legal para garantir que sua empresa alcance a totalidade do seu público, eliminando barreiras e gerando valor real para o seu negócio.</p>
+
+                <h3 style="color: #ffee00;">Acessibilidade Digital</h3>
+                <p>Segundo a Organização Mundial da Saúde (OMS), mais de 1,3 bilhão de pessoas no mundo (cerca de 16% da população global) vivem com alguma deficiência. No Brasil, dados da PNAD Contínua do IBGE apontam que 18,6 milhões de pessoas (8,9% da população) possuem limitações funcionais. Globalmente, o poder de compra desse público e de suas redes de apoio é estimado pelo Fórum Econômico Mundial em mais de US$ 13 trilhões. Ignorar a acessibilidade digital significa fechar as portas para uma enorme parcela do mercado consumidor que compra diariamente pela internet. Adequamos <span lang="en">websites</span>, aplicativos e <span lang="en">softwares</span> aos padrões internacionais (<span lang="en">WCAG</span>) e à Lei Brasileira de Inclusão, tornando suas plataformas totalmente navegáveis para leitores de tela, navegação por teclado e outras tecnologias assistivas.</p>
+
+                <h3 style="color: #ffee00;">Acessibilidade em Eventos</h3>
+                <p>Seja no formato presencial, híbrido ou 100% <span lang="en">online</span>, seu evento precisa acolher a todos sem distinção. No Brasil, os 18,6 milhões de cidadãos com deficiência representam um mercado consumidor ativo que busca autonomia ao participar de conferências, <span lang="en">shows</span> e feiras. Oferecemos suporte completo no planejamento e na execução de eventos: desde a adequação física do espaço e sinalização tátil até a transmissão com interpretação em Libras, audiodescrição e legendagem em tempo real. Garantimos que sua marca promova experiências inclusivas, éticas e inesquecíveis, capturando a fidelidade de um público altamente engajado.</p>
+
+                <h3 style="color: #ffee00;">Palestras e Treinamentos</h3>
+                <p>A verdadeira inclusão começa com a cultura organizacional. Embora no Brasil haja milhões de pessoas com deficiência em idade produtiva, grande parte ainda enfrenta barreiras atitudinais no ambiente corporativo e no atendimento ao cliente. Ao integrar a acessibilidade no DNA da empresa, negócios não apenas cumprem requisitos legais, mas aumentam a retenção de talentos e o potencial de inovação. Nossas palestras, <span lang="en">workshops</span> e treinamentos capacitam equipes de produto, RH, <span lang="en">design</span>, desenvolvimento e lideranças. Desenvolvemos o letramento em diversidade, a desmistificação do capacitismo e o domínio prático do <span lang="en">design</span> universal, preparando sua empresa para construir soluções acessíveis de forma natural e contínua.</p>
+
+                <h3 style="color: #ffee00;">Acessibilidade em Jogos</h3>
+                <p>Os jogos são ferramentas poderosas de inclusão social, lazer e convivência que complementam diretamente outros pilares fundamentais, como a educação e o trabalho. Essa abordagem abrange tanto o universo dos <span lang="en">videogames</span> quanto o dos jogos de tabuleiro (<span lang="en">boardgames</span>). Globalmente, estima-se que a comunidade de jogadores com deficiência movimenta uma fatia expressiva do mercado de entretenimento digital e analógico, buscando opções que respeitem suas necessidades. No entanto, muitos títulos ainda impõem barreiras físicas, visuais ou cognitivas. Nossa consultoria apoia estúdios, editoras e desenvolvedores a aplicarem o <span lang="en">design</span> inclusivo — seja criando elementos táteis, contraste adequado e manuais acessíveis para <span lang="en">boardgames</span>, ou implementando remapeamento de controles, legendas customizadas, audiodescrição e modos para daltonismo em jogos digitais. Dessa forma, garantimos que qualquer pessoa possa jogar com autonomia, expandindo o público-alvo, o faturamento e o impacto social do seu projeto.</p>
+            </section>
+
+            <section id="contato" class="secao-contato" aria-labelledby="titulo-contato">
+                <h2 id="titulo-contato">Entre em Contato</h2>
+                <p>Tem alguma dúvida ou quer saber mais sobre nossas soluções? Envie uma mensagem!</p>
+
+                <form action="https://formspree.io/f/mwvgbjje" method="POST" class="formulario-contato">
+                    
+                    <div class="grupo-campo">
+                        <label for="nome">Nome completo:</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Digite seu nome completo">
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="email">E-mail corporativo ou pessoal:</label>
+                        <input type="email" id="email" name="email" required placeholder="exemplo@dominio.com.br">
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="assunto">Assunto:</label>
+                        <select id="assunto" name="assunto" required>
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="a11y-digital">Acessibilidade Digital</option>
+                            <option value="a11y-jogos">Acessibilidade em Jogos</option>
+                            <option value="a11y-eventos">Acessibilidade em Eventos</option>
+                            <option value="treinamentos">Palestras e Treinamentos</option>
+                            <option value="outros">Dúvidas gerais / Outros</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="telefone">Telefone ou <span lang="en">WhatsApp</span> (Opcional):</label>
+                        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="site">URL do seu <span lang="en">site</span> (Opcional):</label>
+                        <input type="url" id="site" name="url_do_site" placeholder="https://www.seusite.com.br">
+                    </div>
+
+                    <div class="grupo-campo">
+                        <label for="mensagem">Sua mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Como podemos ajudar a tornar seu projeto mais acessível e inclusivo?"></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1">
+
+                    <button type="submit" class="botao-enviar">Enviar Mensagem</button>
+                </form>
+            </section>
+
+            <section id="estatuto" class="secao-manifesto" aria-labelledby="titulo-estatuto">
+                <h2 id="titulo-estatuto" style="color: #ffee00;">Estatuto e Política de Acessibilidade Digital</h2>
+                
+                <h3>1. Visão e Compromisso</h3>
+                <p>Acreditamos que a tecnologia deve ser um agente de autonomia e inclusão. Assumimos o compromisso público de oferecer uma experiência digital equivalente, fluida e independente em nossas plataformas, pautada pelos princípios do Desenho Universal para atender a todas as pessoas, independentemente de suas capacidades físicas, sensoriais ou dos dispositivos utilizados.</p>
+                
+                <h3>2. Diretrizes Técnicas de Conformidade</h3>
+                <p>Nossos ambientes digitais (<span lang="en">web</span> e aplicativos móveis) são desenvolvidos em conformidade com as principais normas nacionais e internacionais:</p>
+                <ul>
+                    <li><strong>ABNT NBR 17225:</strong> Requisitos de acessibilidade para conteúdo e aplicações <span lang="en">web</span>.</li>
+                    <li><strong>ABNT NBR 17060:</strong> Parâmetros técnicos para aplicativos em dispositivos móveis (<span lang="en">Android</span> e <span lang="en">iOS</span>).</li>
+                    <li><strong>WCAG 2.2 (Nível AA):</strong> Diretrizes internacionais baseadas nos pilares Perceptível, Operável, Compreensível e Robusto.</li>
+                    <li><strong>Lei Brasileira de Inclusão (Lei nº 13.146/2015 - Art. 63):</strong> Garantia do direito de acesso às informações e serviços na internet.</li>
+                </ul>
+                
+                <h3>3. Cultura de Engenharia Inclusiva (<span lang="en">Shift Left</span>)</h3>
+                <p>Incorporamos a acessibilidade desde as etapas iniciais de criação de produto:</p>
+                <ul>
+                    <li><strong><span lang="en">Design</span> e <span lang="en">UX</span>:</strong> Protótipos planejados com contraste adequado, suporte a ampliação e foco visível.</li>
+                    <li><strong>Desenvolvimento e <span lang="en">QA</span>:</strong> Aplicação de análise estática de código, testes automatizados e validações com leitores de tela em dispositivos reais.</li>
+                    <li><strong><span lang="en">CMS</span> e Conteúdo:</strong> Regras para garantir textos alternativos em imagens e impedir textos essenciais embutidos em arquivos de arte.</li>
+                </ul>
+                
+                <h3>4. Melhoria Contínua e Contato</h3>
+                <p>A busca pela acessibilidade é um processo contínuo. Realizamos auditorias periódicas para identificar e corrigir eventuais barreiras de navegação com prioridade em nosso fluxo de engenharia.</p>
+                <p>Se você encontrar qualquer dificuldade de acesso em nosso site ou aplicativo, envie sua mensagem diretamente pelo nosso Formulário de Contato no próprio site. Analisaremos seu relato para aplicar as melhorias necessárias.</p>
+                
+                <p>Data da última atualização: Julho de 2026.</p>
+            </section>
+
+            <footer>
+                <nav aria-label="Redes Sociais e Links Legais">
+                    <ul>
+                        <li><a href="https://www.linkedin.com/in/filipe-zaniboni/" target="_blank" rel="noopener noreferrer"><span lang="en">LinkedIn</span></a></li>
+                    </ul>
+                </nav>
+                <p>&copy; 2026 <span lang="en">DIO Tech</span>. Todos os direitos reservados.</p>
+            </footer>
+
+        </main>
+    </div>
 
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
